@@ -7,7 +7,7 @@ int main() {
 	auto load_successful = load_proteins(proteins, "proteins_large.txt");
 	assert( load_successful );
 
-    BlosumPenaltyArray bpa;
+    	BlosumPenaltyArray bpa;
 	load_successful = load_blosum_file(bpa, "blosum62.txt");
 	assert( load_successful );
 
@@ -25,11 +25,8 @@ int main() {
 		std::string searchString = 	testProteins[i];
 		Timer timer;
 		std::cout << "String to Match = " << testProteins[i] << std::endl;
-		std::shared_ptr<Protein> best_protein = local_alignment_best_match(proteins, 
-																		  searchString, 
-																		  bpa, 
-																		  align_string1, 
-																		  align_string2);
+		std::shared_ptr<Protein> best_protein = local_alignment_best_match(proteins, searchString, 
+		bpa, align_string1, align_string2);
 		std::cout << best_protein->description << std::endl;
 		std::cout << align_string1 << std::endl;
 		std::cout << align_string2 << std::endl;
